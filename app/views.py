@@ -5,10 +5,14 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
 
+from crypt import methods
 import re
 from app import app
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for,flash
 from .form import PropertyForm
+from .models import Properties_db
+from app import form
+from . import db
 
 
 ###
@@ -26,10 +30,23 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
-@app.route('/properties/create')
+@app.route('/properties/create', methods=['GET',['POST']])
 def create():
-    myform = PropertyForm()
     """Render the properties create page."""
+    myform = PropertyForm()
+    if request.method == "POST" and form.validate_on_submit():
+        property_name = request.form['property_name']
+        description = request.form['description']
+        rooms_num = request.form['rooms_num']
+        bathrooms_num = request.form['bathrooms_num']
+        price = request.form['price']
+        property_type = request.form['property_type']
+        location = request.form['location']
+        photo = request.files['photo']
+
+        property_form = Properties_db(property_name,description,rooms_num,bathrooms_num,price,property_type,location,data=photo.read())
+        db.session.add(property_form)
+        db.session.commit()
     return render_template('create.html', form=myform)
 
 @app.route('/properties')
