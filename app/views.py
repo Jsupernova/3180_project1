@@ -8,7 +8,7 @@ This file creates your application.
 import re
 from app import app
 from flask import render_template, request, redirect, url_for
-from .forrm import PropertyForm
+from .form import PropertyForm
 
 
 ###
@@ -28,8 +28,9 @@ def about():
 
 @app.route('/properties/create')
 def create():
+    myform = PropertyForm()
     """Render the properties create page."""
-    return render_template('create.html')
+    return render_template('create.html', form=myform)
 
 @app.route('/properties')
 def properties():
