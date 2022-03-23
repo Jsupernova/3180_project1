@@ -5,8 +5,10 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
 
+import re
 from app import app
 from flask import render_template, request, redirect, url_for
+from .forrm import PropertyForm
 
 
 ###
@@ -24,6 +26,19 @@ def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")
 
+@app.route('/properties/create')
+def create():
+    """Render the properties create page."""
+    return render_template('create.html')
+
+@app.route('/properties')
+def properties():
+    """Render the list of properties"""    
+    return render_template('properties.html')
+
+@app.route('/properties/<propertyid>')
+def property_desisplay():
+    return render_template('property_display.html')
 
 ###
 # The functions below should be applicable to all Flask apps.

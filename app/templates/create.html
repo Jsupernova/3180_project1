@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <form method="POST" action="{{url_for('create')}}">
+        {{ form.csrf_token }}
+        <div>
+            <div>
+                {{ form.property_name.label }}
+            </div>
+                {{form.property_name}}
+        </div>
+        
+        <div>
+            <div>
+                {{ form.description.label }}
+            </div>
+                {{form.description}}
+        </div>
+
+        <div>
+            <div>
+                {{ form.rooms_num.label }}
+            </div>
+                {{form.rooms_num}}
+        </div>
+
+        <div>
+            <div>
+                {{ form.bathrooms_num.label }}
+            </div>
+                {{form.bathrooms_num}}
+        </div>
+
+        <div>
+            <div>
+                {{ form.price.label }}
+            </div>
+                {{form.price}}
+        </div>
+
+        <div>
+            <div>
+                {{ form.propterty_type.label }}
+            </div>
+                {{form.propterty_type}}
+        </div>
+
+        <div>
+            <div>
+                {{ form.location.label }}
+            </div>
+                {{form.location}}
+        </div>
+
+        <div>
+            <div>
+                {{ form.photo.label }}
+            </div>
+                {{form.photo}}
+        </div>
+
+        <div>
+            <button type="submit">Add Property</button>
+        </div>
+    </form>
+{% endblock %}
