@@ -4,15 +4,12 @@ Jinja2 Documentation:    https://jinja.palletsprojects.com/
 Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
-
-from crypt import methods
-import re
 from app import app
 from flask import render_template, request, redirect, url_for,flash
 from .form import PropertyForm
 from .models import Properties_db
 from app import form
-from . import db
+from models import db
 
 
 ###
