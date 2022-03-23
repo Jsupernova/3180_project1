@@ -1,0 +1,28 @@
+{% extends "base.html"%}
+{% block main %}
+<div class="properties">
+    <h1>Properties</h1>
+    <div class="grid-container">
+    {% for properti in propertis %}
+   
+    <form action="{{ url_for('property_desisplay',propertyid=properti.id) }}">
+      
+        <div class="card grid-item property" >
+            <img class="images" src="{{url_for('static',filename=properti.photo)}}" alt="image" >
+            <div class="card-body">
+              <h5 class="card-title">{{properti.property_name}}</h5>
+              <p class="card-text">{{properti.location}}</p>
+              <div class="price">
+                <p style="margin-top:2px;">${{properti.price}}</p>
+
+              </div>
+              
+            </div>
+            <button  class="btn btn-primary" type="submit">View Property</button>
+          </div>
+    </form>
+   
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

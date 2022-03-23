@@ -1,0 +1,33 @@
+{% extends "base.html"%}
+
+{% block main %}
+    <div>
+        <ul>
+            <div>
+                <li> <img src="{{url_for('static',filename=photo)}}" alt="image"></li>
+            </div>
+
+            <div>
+                <li>{{price}}</li>
+                <li>{{property_type}}</li>
+            </div>
+
+            <div>
+                <li>{{description}}</li>
+            </div>
+
+            <div>
+                <li>{{rooms_num}} Bedrooms</li>
+                <li>{{bathrooms_num}} Bathrooms</li>
+            </div>
+
+            <div>
+                <li>{{location}}</li>
+            </div>
+
+            <div>
+                <button>Email Reailtor</button>
+            </div>
+        </ul>
+    </div>
+{% endblock %}

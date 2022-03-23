@@ -4,6 +4,7 @@ Jinja2 Documentation:    https://jinja.palletsprojects.com/
 Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file creates your application.
 """
+from cgi import print_exception
 import os
 from app import app,form,db
 from flask import render_template, request, redirect, url_for,flash
@@ -47,17 +48,30 @@ def create():
         property_form = Properties_db(property_name,description,rooms_num,bathrooms_num,price,property_type,location,'/uploads/'+filename)
         db.session.add(property_form)
         db.session.commit()
+        redirect('/properties')
     return render_template('create.html', form=myform)
 
 @app.route('/properties')
 def properties():
-    """Render the list of properties"""    
-    return render_template('properties.html')
+    """Render the list of properties"""
+    properti = Properties_db.query.all()
+    return render_template('properties.html',propertis=properti)
 
 @app.route('/properties/<propertyid>')
-def property_desisplay():
-    return render_template('property_display.html')
-
+def property_desisplay(propertyid):
+    property_dis = Properties_db.query.get(propertyid)
+    if property_dis is not None:
+        title = property_dis.property_name
+        description = property_dis.description
+        rooms_num = property_dis.rooms_num
+        bathroom_num = property_dis.bathrooms_num
+        price = property_dis.price
+        property_type = property_dis.property_type
+        location = property_dis.location
+        photo = property_dis.photo
+        return render_template('property.html',property_name=title,description=description,rooms_num=rooms_num,bathroom_num=bathroom_num,price=price,property_type=property_type,location=location,photo=photo)
+    flash("No property found")
+    return render_template('404.html')
 ###
 # The functions below should be applicable to all Flask apps.
 ###

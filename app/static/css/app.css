@@ -1,3 +1,36 @@
 body {
     padding-top: 5rem;
+    background-color: rgb(243,244,246);
+}
+
+.properties{
+
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* padding: 10px; */
+}
+
+.property{
+    height:100%;
+    width:55%;
+    
+}
+
+
+.price{
+    background-color: blue;
+    color: white;
+    padding:5px;
+    padding-bottom: 2px;
+    padding-top:2px;
+
+    border-radius: 20px;
+    
+    text-align: center;
+    height:fit-content;
+    width: fit-content;
+    
 }

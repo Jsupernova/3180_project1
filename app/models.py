@@ -22,3 +22,6 @@ class Properties_db(db.Model):
         self.property_type = property_type
         self.location = location
         self.photo = photo
+
+    def __repr__(self):
+        return '<property %r %r %r %r %r %r %r %r>' % (self.property_name, self.description, self.rooms_num, self.bathrooms_num,self.price,self.property_type,self.location,self.photo)
