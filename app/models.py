@@ -1,6 +1,6 @@
 from inspect import classify_class_attrs
-from . import db
-
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy(app)
 class Properties_db(db.Model):
     __tablename__ = 'properties'
 
