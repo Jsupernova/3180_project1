@@ -48,7 +48,7 @@ def create():
         property_form = Properties_db(property_name,description,rooms_num,bathrooms_num,price,property_type,location,'/uploads/'+filename)
         db.session.add(property_form)
         db.session.commit()
-        redirect('/properties')
+        return redirect('/properties')
     return render_template('create.html', form=myform)
 
 @app.route('/properties')
@@ -69,7 +69,7 @@ def property_desisplay(propertyid):
         property_type = property_dis.property_type
         location = property_dis.location
         photo = property_dis.photo
-        return render_template('property.html',property_name=title,description=description,rooms_num=rooms_num,bathroom_num=bathroom_num,price=price,property_type=property_type,location=location,photo=photo)
+        return render_template('property.html',property_name=title,description=description,rooms_num=rooms_num,bathrooms_num=bathroom_num,price=price,property_type=property_type,location=location,photo=photo)
     flash("No property found")
     return render_template('404.html')
 ###
