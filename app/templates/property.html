@@ -1,33 +1,25 @@
 {% extends "base.html"%}
 
 {% block main %}
-    <div>
-        <ul>
-            <div>
-                <li> <img src="{{url_for('static',filename=photo)}}" alt="image"></li>
-            </div>
-
-            <div>
-                <li>{{price}}</li>
-                <li>{{property_type}}</li>
-            </div>
-
-            <div>
-                <li>{{description}}</li>
-            </div>
-
-            <div>
-                <li>{{rooms_num}} Bedrooms</li>
-                <li>{{bathrooms_num}} Bathrooms</li>
-            </div>
-
-            <div>
-                <li>{{location}}</li>
-            </div>
-
-            <div>
-                <button>Email Reailtor</button>
-            </div>
-        </ul>
-    </div>
+  
+    <div class="center card s_property" style="width: 50rem;">
+        <img src="{{url_for('static',filename=photo)}}" alt="image" class="card-img-top" >
+        
+        <div class="card-body">
+          <h5 class="card-title">{{property_name}}</h5>
+          <div class="d-flex flex-row">
+            <div class=" price ">
+                <p style="margin-top:2px;">{{price}}</p>
+              </div>
+              <div class=" price">
+                <p style="margin-top:2px;">{{property_type}}</p>
+              </div>
+          </div>
+          <p class="card-text">{{description}}</p>
+        
+          <p class="card-text"><span>{{rooms_num}} Bedrooms</span> &emsp; &emsp;<span>{{bathrooms_num}} Bathrooms</span></p>
+          <p class="card-text">{{location}}</p>
+          <a href="#" class="btn btn-primary">Email Reailtor</a>
+        </div>
+      </div>
 {% endblock %}

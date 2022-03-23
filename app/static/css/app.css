@@ -11,21 +11,25 @@ body {
     display: grid;
     grid-template-columns: auto auto auto;
     /* padding: 10px; */
+    /* grid-column-gap: 5px; */
 }
 
 .property{
-    height:100%;
+    /* height:100%;
     width:55%;
-    
+     */
+     height:400px;
+     width:350px;
 }
 
-
+.image{
+    height:200px;
+}
 .price{
     background-color: blue;
     color: white;
-    padding:5px;
-    padding-bottom: 2px;
-    padding-top:2px;
+    padding-left: 20px;
+    padding-right: 20px;
 
     border-radius: 20px;
     
@@ -34,3 +38,11 @@ body {
     width: fit-content;
     
 }
+
+.s_property {
+    flex-direction: row;
+    height:350px;
+  }
+  .s_property img {
+    width: 40%;
+  }
