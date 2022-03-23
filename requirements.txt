@@ -10,3 +10,4 @@ Flask-WTF
 WTForms==3.0.1
 Flask-Migrate
 Flask-SQLAlchemy
+psycopg2-binary 
